@@ -3,8 +3,12 @@ import React from 'react';
 
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = () => {
-  /* Insert React */
+const PhotoListItem = (props) => {
+  return (
+    <article>
+      <img src={props.imageSource} alt="skiing in the mountains" />
+    </article>
+  )
 }
 
 PhotoListItem.defaultProps = {
