@@ -8,9 +8,7 @@ function PhotoFavButton() {
 
   const [like, setLike] = useState("unliked");
 
-  const handleClick = () => {
-    setLike((like === "liked") ? "unliked" : "liked");
-  }
+  const handleClick = () => setLike((like === "liked") ? "unliked" : "liked");
   // console.log("button state is " + like)
 
 
