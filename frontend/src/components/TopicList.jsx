@@ -9,7 +9,7 @@ const TopicList = (props) => {
     return (
       <TopicListItem 
         key={topic.id}
-        label={topic.label}
+        title={topic.title}
         link={topic.link}
       />
     )
@@ -22,23 +22,23 @@ const TopicList = (props) => {
   ) 
 }
 
-TopicList.defaultProps = {
-  topics: [
-    {
-      id: 1,
-      label: 'Nature',
-      link: 'link placeholder' 
-    },
-    { 
-      id: 2, 
-      label: 'Food',
-      link: 'link placeholder' 
-    },
-    {
-      id: 3,
-      label: 'People',
-      link: 'link placeholder' 
-    },
-  ]
-}
+// TopicList.defaultProps = {
+//   topics: [
+//     {
+//       id: 1,
+//       label: 'Nature',
+//       link: 'link placeholder' 
+//     },
+//     { 
+//       id: 2, 
+//       label: 'Food',
+//       link: 'link placeholder' 
+//     },
+//     {
+//       id: 3,
+//       label: 'People',
+//       link: 'link placeholder' 
+//     },
+//   ]
+// }
 export default TopicList
