@@ -9,7 +9,8 @@ const PhotoList = (props) => {
     return (
       <PhotoListItem 
         key={photo.id}
-        imageSource={photo.imageSource}
+        imageSource={photo.urls.regular}
+        description={photo.description}
       />
     )
   })

@@ -5,11 +5,11 @@ import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = (props) => {
 
-  const { imageSource } = props;
+  const { imageSource , description } = props;
 
   return (
     <article className="photo-list--item">
-      <img className="photo-list--image" src={imageSource} alt="" />
+      <img className="photo-list--image" src={imageSource} alt={description} />
     </article>
   )
 }
