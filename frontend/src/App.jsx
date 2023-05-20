@@ -1,9 +1,6 @@
 import React from 'react';
 
 import './App.scss';
-import PhotoFavButton from './components/PhotoFavButton';
-import PhotoList from './components/PhotoList';
-import TopNavigationBar from './components/TopNavigationBar';
 import HomeRoute from './routes/HomeRoute';
 
 import photos from './mocks/photos.json';
@@ -14,9 +11,6 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics}/>
-      {/* <TopNavigationBar />
-      <PhotoList />
-      <PhotoFavButton /> */}
     </div>
   )
 }
