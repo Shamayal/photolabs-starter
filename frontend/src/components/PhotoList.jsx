@@ -11,6 +11,9 @@ const PhotoList = (props) => {
         key={photo.id}
         imageSource={photo.urls.regular}
         description={photo.description}
+        user={photo.user.name}
+        city={photo.location.city}
+        country={photo.location.country}
       />
     )
   })
