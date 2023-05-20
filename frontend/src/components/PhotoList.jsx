@@ -5,7 +5,9 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
 
-  const photosParsedComponents = props.photos.map(photo => {
+  const { photos , likedPhotos, setLikedPhotos } = props;
+
+  const photosParsedComponents = photos.map(photo => {
     return (
       <PhotoListItem 
         key={photo.id}
@@ -14,6 +16,8 @@ const PhotoList = (props) => {
         user={photo.user.name}
         city={photo.location.city}
         country={photo.location.country}
+        likedPhotos={likedPhotos}
+        setLikedPhotos={setLikedPhotos}
       />
     )
   })
