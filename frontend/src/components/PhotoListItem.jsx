@@ -6,12 +6,12 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
-  const { key, imageSource , description , user, city , country , likedPhotos , setLikedPhotos } = props;
+  const { photoId , imageSource , description , user, city , country , likedPhotos , setLikedPhotos } = props;
 
   return (
     <article className="photo-list--item">
       <div>
-        <PhotoFavButton  key={key} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+        <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
       </div>
       <img className="photo-list--image" src={imageSource} alt={description} />
 

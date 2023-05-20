@@ -11,6 +11,7 @@ const PhotoList = (props) => {
     return (
       <PhotoListItem 
         key={photo.id}
+        photoId={photo.id}
         imageSource={photo.urls.regular}
         description={photo.description}
         user={photo.user.name}
@@ -52,4 +53,4 @@ const PhotoList = (props) => {
 //    ]
 // }
 
-export default PhotoList
+export default PhotoList;
