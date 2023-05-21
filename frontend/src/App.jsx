@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId}  />
-      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal}/>}
+      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal} photos={photos}/>}
     </div>
   )
 }
