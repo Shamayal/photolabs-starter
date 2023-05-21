@@ -13,8 +13,10 @@ const App = () => {
   const [clickedPhotoId, setClickedPhotoId] = useState(null);
   const [likedPhotos, setLikedPhotos] = useState([]);
 
-  console.log("value of photoOpen: ", photoOpen)
-  console.log("value of clickedPhotoId: ", clickedPhotoId)
+  // console.log("value of photoOpen: ", photoOpen)
+  // console.log("value of clickedPhotoId: ", clickedPhotoId)
+
+  // console.log("array of liked photos", likedPhotos)
 
   const closeModal = () => {
     setPhotoOpen(false);

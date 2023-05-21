@@ -15,7 +15,7 @@ function PhotoFavButton(props) {
     }
   }
 
-  console.log("here", likedPhotos.includes(photoId))
+  // console.log("liked photo", likedPhotos.includes(photoId))
 
   return (
     <div className="photo-list--fav-icon" onClick={likePhoto} >

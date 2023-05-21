@@ -9,7 +9,7 @@ const PhotoListItem = (props) => {
   const { photoId , imageSource , description , user, city , country , likedPhotos , setLikedPhotos , photoClick, currPhotoId } = props;
 
   const clickedPhoto = () => {
-    console.log("clicked", photoId)
+    // console.log("clicked", photoId)
     photoClick(true)
     currPhotoId(photoId)
   }
