@@ -5,11 +5,9 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { photos, topics , photoClick, currPhotoId } = props;
+  const { photos, topics , photoClick, currPhotoId, likedPhotos, setLikedPhotos } = props;
 
   // array for liked photos
-  const [likedPhotos, setLikedPhotos] = useState([]);
-
   // console.log(likedPhotos)
 
   return (

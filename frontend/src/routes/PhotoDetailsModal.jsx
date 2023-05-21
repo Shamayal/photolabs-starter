@@ -4,8 +4,7 @@ import '../styles/PhotoDetailsModal.scss'
 import PhotoList from '../components/PhotoList';
 
 export const PhotoDetailsModal = (props) => {
-  const { clickedPhotoId , closeModal , photos } = props;
-  console.log(props);
+  const { clickedPhotoId , closeModal , photos , likedPhotos, setLikedPhotos } = props;
 
   const photoSrc = photos.find(photo => photo.id === clickedPhotoId);
 
@@ -27,6 +26,7 @@ export const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal--images">
         <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
         <header className="photo-details-modal--header">Similar Photos</header>
+        <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} />
       </div>
     </div>
   )

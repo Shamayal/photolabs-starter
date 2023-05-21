@@ -11,6 +11,7 @@ const App = () => {
 
   const [photoOpen, setPhotoOpen] = useState(false);
   const [clickedPhotoId, setClickedPhotoId] = useState(null);
+  const [likedPhotos, setLikedPhotos] = useState([]);
 
   console.log("value of photoOpen: ", photoOpen)
   console.log("value of clickedPhotoId: ", clickedPhotoId)
@@ -22,8 +23,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId}  />
-      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal} photos={photos}/>}
+      <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal} photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>}
     </div>
   )
 }
