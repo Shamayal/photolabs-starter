@@ -21,7 +21,6 @@ function PhotoFavButton(props) {
         <FavIcon fill={likedPhotos.includes(photoId) ? "#C80000" : "#none"} />
       </div>
     </div>
-
   );
 }
 

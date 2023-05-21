@@ -10,11 +10,9 @@ const PhotoListItem = (props) => {
 
   return (
     <article className="photo-list--item">
-      <div>
         <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
-      </div>
-      <img className="photo-list--image" src={imageSource} alt={description} />
-
+        <img className="photo-list--image" src={imageSource} alt={description} />
+        
       <div className="photo-list--user-details">
         <img className="photo-list--user-profile" src={imageSource} />
         <div className="photo-list--user-info">
