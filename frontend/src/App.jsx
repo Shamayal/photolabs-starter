@@ -10,18 +10,15 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 const App = () => {
 
   const [photoOpen, setPhotoOpen] = useState(false);
-  const [clickPhotoId, setClickPhotoId] = useState(null);
+  const [clickedPhotoId, setClickedPhotoId] = useState(null);
 
-  const photoClick = (photoId) => {
-    setPhotoOpen(true);
-    setClickPhotoId(photoId)
-    console.log("clicked on photo id: ", photoClick)
-  }
-  
+  console.log("value of photoOpen: ", photoOpen)
+  console.log("value of clickedPhotoId: ", clickedPhotoId)
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} photoClick={photoClick}/>
-      {photoOpen && <PhotoDetailsModal photoClick={photoClick}/>}
+      <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId}  />
+      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} />}
     </div>
   )
 }

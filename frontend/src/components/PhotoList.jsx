@@ -4,8 +4,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-
-  const { photos , likedPhotos, setLikedPhotos } = props;
+  const { photos , likedPhotos, setLikedPhotos , photoClick, currPhotoId } = props;
 
   const photosParsedComponents = photos.map(photo => {
     return (
@@ -19,6 +18,8 @@ const PhotoList = (props) => {
         country={photo.location.country}
         likedPhotos={likedPhotos}
         setLikedPhotos={setLikedPhotos}
+        photoClick={photoClick}
+        currPhotoId={currPhotoId}
       />
     )
   })
