@@ -15,10 +15,15 @@ const App = () => {
   console.log("value of photoOpen: ", photoOpen)
   console.log("value of clickedPhotoId: ", clickedPhotoId)
 
+  const closeModal = () => {
+    setPhotoOpen(false);
+    setClickedPhotoId(null);
+  }
+
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId}  />
-      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} />}
+      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal}/>}
     </div>
   )
 }
