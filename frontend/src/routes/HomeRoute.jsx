@@ -9,6 +9,8 @@ const HomeRoute = (props) => {
 
   const [likedPhotos, setLikedPhotos] = useState([]);
 
+  console.log(likedPhotos)
+
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} likedPhotos={likedPhotos}/>

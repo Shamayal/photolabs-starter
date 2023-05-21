@@ -2,25 +2,26 @@ import React, { useCallback, useState } from 'react';
 
 import { FavIcon } from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import FavBadge from './FavBadge';
 
-function PhotoFavButton() {
+function PhotoFavButton(props) {
 
-  const [like, setLike] = useState("unliked");
+  const { photoId, likedPhotos , setLikedPhotos } = props;
 
-  const handleClick = () => setLike((like === "liked") ? "unliked" : "liked");
-  // console.log("button state is " + like)
-
+  const likePhoto = () => {
+    if (likedPhotos.includes(photoId)) {
+      setLikedPhotos(currLikedPhotos => {return currLikedPhotos.filter(id => id !== photoId)})
+    } else {
+      setLikedPhotos([...likedPhotos, photoId])
+    }
+  }
 
   return (
-    // <div className="photo-list--fav-icon">
-    //   <div className="photo-list--fav-icon-svg">
-    //     {/* Insert React */}
-    //   </div>
-    // </div>
-    <button onClick={handleClick} className="photo-list--fav-icon">
-      {like === "liked" ? <FavBadge /> : <FavIcon />}
-    </button>
+    <div className="photo-list--fav-icon" onClick={likePhoto} >
+      <div className="photo-list--fav-icon-svg">
+        <FavIcon fill={likedPhotos.includes(photoId) ? "#C80000" : "#none"} />
+      </div>
+    </div>
+
   );
 }
 
