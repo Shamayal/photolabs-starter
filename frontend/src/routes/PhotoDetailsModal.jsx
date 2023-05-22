@@ -2,6 +2,7 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import PhotoList from '../components/PhotoList';
+import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
   const { clickedPhotoId , closeModal , photos , likedPhotos, setLikedPhotos } = props;
@@ -25,6 +26,7 @@ export const PhotoDetailsModal = (props) => {
       </button>
       <div className="photo-details-modal--images">
         <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
+        <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
         <header className="photo-details-modal--header">Similar Photos</header>
         <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} />
       </div>
