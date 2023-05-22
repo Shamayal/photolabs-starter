@@ -11,9 +11,9 @@ const HomeRoute = (props) => {
   // console.log(likedPhotos)
 
   return (
-    <div className="home-route">
+    <div className="home-route" style={{backgroundColor: "#F5F5F5"}}>
       <TopNavigationBar topics={topics} likedPhotos={likedPhotos}/>
-      <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} photoClick={photoClick} currPhotoId={currPhotoId} />
+      <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} photoClick={photoClick} currPhotoId={currPhotoId}/>
     </div>
   )
 }

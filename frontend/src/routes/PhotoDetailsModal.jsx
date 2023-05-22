@@ -24,9 +24,9 @@ export const PhotoDetailsModal = (props) => {
           </defs>
         </svg>
       </button>
-      <div className="photo-details-modal--images">
+      <div className="photo-details-modal--images" style={{backgroundColor: "white"}}>
         <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
-        <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
+        <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>        
         <header className="photo-details-modal--header">Similar Photos</header>
         <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} />
       </div>
