@@ -5,20 +5,12 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const { photoId, likedPhotos , setLikedPhotos } = props;
-
-  const likePhoto = () => {
-    if (likedPhotos.includes(photoId)) {
-      setLikedPhotos(currLikedPhotos => {return currLikedPhotos.filter(id => id !== photoId)})
-    } else {
-      setLikedPhotos([...likedPhotos, photoId])
-    }
-  }
+  const { photoId, likedPhotos , likePhoto } = props;
 
   // console.log("liked photo", likedPhotos.includes(photoId))
 
   return (
-    <div className="photo-list--fav-icon" onClick={likePhoto} >
+    <div className="photo-list--fav-icon" onClick={() => likePhoto(photoId)} >
       <div className="photo-list--fav-icon-svg">
         <FavIcon fill={likedPhotos.includes(photoId) ? "#C80000" : "#none"} />
       </div>

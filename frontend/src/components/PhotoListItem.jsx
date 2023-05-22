@@ -6,7 +6,7 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
-  const { photoId , imageSource , description , user, city , country , likedPhotos , setLikedPhotos , photoClick, currPhotoId } = props;
+  const { photoId , imageSource , description , user, city , country , likedPhotos , likePhoto , photoClick, currPhotoId } = props;
 
   const clickedPhoto = () => {
     // console.log("clicked", photoId)
@@ -16,7 +16,7 @@ const PhotoListItem = (props) => {
 
   return (
     <article className="photo-list--item">
-        <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+        <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} likePhoto={likePhoto}/>
         <img className="photo-list--image" src={imageSource} alt={description} onClick={clickedPhoto}/>
         
       <div className="photo-list--user-details">

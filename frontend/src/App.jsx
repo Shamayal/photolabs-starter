@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
@@ -11,15 +11,17 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 const App = () => {
 
   const {
+    app,
+    setApp,
     photoOpen,
     setPhotoOpen,
     clickedPhotoId,
     setClickedPhotoId,
     likedPhotos,
-    setLikedPhotos,
     closeModal,
+    likePhoto,
   } = useApplicationData(); 
-
+  console.log(likedPhotos)
   // const [photoOpen, setPhotoOpen] = useState(false);
   // const [clickedPhotoId, setClickedPhotoId] = useState(null);
   // const [likedPhotos, setLikedPhotos] = useState([]);
@@ -36,8 +38,20 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} photoClick={setPhotoOpen} currPhotoId={setClickedPhotoId} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
-      {photoOpen && <PhotoDetailsModal clickedPhotoId={clickedPhotoId} closeModal={closeModal} photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>}
+      <HomeRoute 
+      photos={photos} 
+      topics={topics} 
+      photoClick={setPhotoOpen} 
+      currPhotoId={setClickedPhotoId} 
+      likedPhotos={likedPhotos} 
+      likePhoto={likePhoto}/>
+
+      {photoOpen && <PhotoDetailsModal 
+      clickedPhotoId={clickedPhotoId} 
+      closeModal={closeModal} 
+      photos={photos} 
+      likedPhotos={likedPhotos} 
+      likePhoto={likePhoto}/>}
     </div>
   )
 }

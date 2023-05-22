@@ -5,7 +5,7 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { photos, topics , photoClick, currPhotoId, likedPhotos, setLikedPhotos } = props;
+  const { photos, topics , photoClick, currPhotoId, likedPhotos, likePhoto } = props;
 
   // array for liked photos
   // console.log(likedPhotos)
@@ -13,7 +13,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route" style={{backgroundColor: "#F5F5F5"}}>
       <TopNavigationBar topics={topics} likedPhotos={likedPhotos}/>
-      <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} photoClick={photoClick} currPhotoId={currPhotoId}/>
+      <PhotoList photos={photos} likedPhotos={likedPhotos} likePhoto={likePhoto} photoClick={photoClick} currPhotoId={currPhotoId}/>
     </div>
   )
 }
