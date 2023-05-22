@@ -25,8 +25,8 @@ export const PhotoDetailsModal = (props) => {
         </svg>
       </button>
       <div className="photo-details-modal--images">
-        <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
         <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+        <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
         <header className="photo-details-modal--header">Similar Photos</header>
         <PhotoList photos={photos} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} />
       </div>
