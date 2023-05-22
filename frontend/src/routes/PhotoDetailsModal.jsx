@@ -28,7 +28,9 @@ export const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal--images" style={{backgroundColor: "white"}}>
         <div>
           <div className="photo-details-modal--image-container">
-            <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+            <div className="photo-details-modal--image-heart">
+              <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos}/>
+            </div>
             <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
           </div>
           

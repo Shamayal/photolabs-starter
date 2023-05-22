@@ -44,9 +44,13 @@
 }
 
 .photo-details-modal--image-container {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-details-modal--image-heart {
+  margin-right: 372px;
 }
 
 .photo-details-modal--photographer-details {
