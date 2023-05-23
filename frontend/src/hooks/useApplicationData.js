@@ -44,12 +44,6 @@ export default function useApplicationData() {
 
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  // const [photoOpen, setPhotoOpen] = useState(false);
-
-  // const [clickedPhotoId, setClickedPhotoId] = useState(null);
-  
-  // const [likedPhotos, setLikedPhotos] = useState([]);
-
   const likePhoto = (photoId) => {
     if (state.likedPhotos.includes(photoId)) {
       dispatch({
@@ -64,7 +58,7 @@ export default function useApplicationData() {
     }
   }
   console.log(state.photoOpen)
-  const setPhotoOpen = (photoId) => {
+  const openModal = (photoId) => {
     dispatch({
       type: "SELECT_PHOTO",
       payload: {isOpen: true, clickedPhotoId: photoId }
@@ -80,11 +74,11 @@ export default function useApplicationData() {
   }
 
   return {
-    photoOpen: state.photoOpen,
-    setPhotoOpen,
-    clickedPhotoId: state.clickedPhotoId,
-    likedPhotos: state.likedPhotos,
-    closeModal,
     likePhoto,
+    likedPhotos: state.likedPhotos,
+    openModal,
+    closeModal,
+    photoOpen: state.photoOpen,
+    clickedPhotoId: state.clickedPhotoId,
   };
 }

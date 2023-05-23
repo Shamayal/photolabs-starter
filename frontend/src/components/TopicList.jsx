@@ -7,10 +7,10 @@ const TopicList = (props) => {
 
   const topicsParsedComponents = props.topics.map((topic) => {
     return (
-      <TopicListItem 
-        key={topic.id}
-        title={topic.title}
-        link={topic.link}
+      <TopicListItem
+      key={topic.id}
+      title={topic.title}
+      link={topic.link}
       />
     )
   })

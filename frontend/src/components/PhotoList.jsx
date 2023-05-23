@@ -4,22 +4,26 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  const { photos , likedPhotos, likePhoto , photoClick, currPhotoId } = props;
+  const {
+    photos,
+    likePhoto,
+    likedPhotos,
+    openModal
+  } = props;
 
   const photosParsedComponents = photos.map(photo => {
     return (
-      <PhotoListItem 
-        key={photo.id}
-        photoId={photo.id}
-        imageSource={photo.urls.regular}
-        description={photo.description}
-        user={photo.user.name}
-        city={photo.location.city}
-        country={photo.location.country}
-        likedPhotos={likedPhotos}
-        likePhoto={likePhoto}        
-        photoClick={photoClick}
-        currPhotoId={currPhotoId}
+      <PhotoListItem
+      key={photo.id}
+      photoId={photo.id}
+      imageSource={photo.urls.regular}
+      description={photo.description}
+      user={photo.user.name}
+      city={photo.location.city}
+      country={photo.location.country}
+      likePhoto={likePhoto}
+      likedPhotos={likedPhotos}
+      openModal={openModal}
       />
     )
   })

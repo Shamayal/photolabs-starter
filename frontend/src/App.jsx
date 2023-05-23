@@ -11,46 +11,29 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 const App = () => {
 
   const {
-    photoOpen,
-    setPhotoOpen,
-    clickedPhotoId,
-    setClickedPhotoId,
-    likedPhotos,
-    closeModal,
     likePhoto,
+    likedPhotos,
+    openModal,
+    closeModal,
+    photoOpen,
+    clickedPhotoId    
   } = useApplicationData(); 
-  console.log(likedPhotos)
-  console.log(clickedPhotoId);
-  // const [photoOpen, setPhotoOpen] = useState(false);
-  // const [clickedPhotoId, setClickedPhotoId] = useState(null);
-  // const [likedPhotos, setLikedPhotos] = useState([]);
-
-  // console.log("value of photoOpen: ", photoOpen)
-  // console.log("value of clickedPhotoId: ", clickedPhotoId)
-
-  // console.log("array of liked photos", likedPhotos)
-
-  // const closeModal = () => {
-  //   setPhotoOpen(false);
-  //   setClickedPhotoId(null);
-  // };
 
   return (
     <div className="App">
       <HomeRoute 
       photos={photos} 
       topics={topics} 
-      photoClick={setPhotoOpen} 
-      currPhotoId={setClickedPhotoId} 
-      likedPhotos={likedPhotos} 
-      likePhoto={likePhoto}/>
+      openModal={openModal} 
+      likePhoto={likePhoto}
+      likedPhotos={likedPhotos}/>
 
-      {photoOpen && clickedPhotoId && <PhotoDetailsModal 
-      clickedPhotoId={clickedPhotoId} 
-      closeModal={closeModal} 
-      photos={photos} 
-      likedPhotos={likedPhotos} 
-      likePhoto={likePhoto}/>}
+      {photoOpen && clickedPhotoId && <PhotoDetailsModal
+      photos={photos}
+      likePhoto={likePhoto}
+      likedPhotos={likedPhotos}
+      closeModal={closeModal}
+      clickedPhotoId={clickedPhotoId}/>}
     </div>
   )
 }

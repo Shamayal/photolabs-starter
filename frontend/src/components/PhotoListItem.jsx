@@ -6,12 +6,22 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
 
-  const { photoId , imageSource , description , user, city , country , likedPhotos , likePhoto , photoClick, currPhotoId } = props;
+  const {
+    photoId,
+    imageSource,
+    description,
+    user,
+    city,
+    country,
+    likePhoto,
+    likedPhotos,
+    openModal,
+  } = props;
 
   return (
     <article className="photo-list--item">
-        <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} likePhoto={likePhoto}/>
-        <img className="photo-list--image" src={imageSource} alt={description} onClick={() => photoClick(photoId)}/>
+        <PhotoFavButton photoId={photoId} likePhoto={likePhoto} likedPhotos={likedPhotos} />
+        <img className="photo-list--image" src={imageSource} alt={description} onClick={() => openModal(photoId)} />
         
       <div className="photo-list--user-details">
         <img className="photo-list--user-profile" src={imageSource} />

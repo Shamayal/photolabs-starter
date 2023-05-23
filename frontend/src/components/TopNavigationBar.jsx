@@ -6,7 +6,10 @@ import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
 
-  const { topics , likedPhotos } = props;
+  const {
+    topics,
+    likedPhotos
+  } = props;
 
   return (
     <div className="top-nav-bar">

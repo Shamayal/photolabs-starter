@@ -5,15 +5,24 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { photos, topics , photoClick, currPhotoId, likedPhotos, likePhoto } = props;
-
-  // array for liked photos
-  // console.log(likedPhotos)
+  const { 
+    photos,
+    topics,
+    openModal,
+    likePhoto,
+    likedPhotos,
+  } = props;
 
   return (
     <div className="home-route" style={{backgroundColor: "#F5F5F5"}}>
-      <TopNavigationBar topics={topics} likedPhotos={likedPhotos}/>
-      <PhotoList photos={photos} likedPhotos={likedPhotos} likePhoto={likePhoto} photoClick={photoClick} currPhotoId={currPhotoId}/>
+      <TopNavigationBar 
+      topics={topics} 
+      likedPhotos={likedPhotos}/>
+      <PhotoList 
+      photos={photos}
+      likePhoto={likePhoto}
+      likedPhotos={likedPhotos}
+      openModal={openModal}/>
     </div>
   )
 }

@@ -5,8 +5,13 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
-  const { clickedPhotoId , closeModal , photos , likedPhotos, likePhoto } = props;
-  console.log(clickedPhotoId);
+  const {
+    photos,
+    likePhoto,
+    likedPhotos,
+    closeModal,
+    clickedPhotoId
+  } = props;
 
   const photoSrc = photos.find(photo => photo.id === clickedPhotoId);
 
@@ -30,7 +35,7 @@ export const PhotoDetailsModal = (props) => {
         <div>
           <div className="photo-details-modal--image-container">
             <div className="photo-details-modal--image-heart">
-              <PhotoFavButton photoId={clickedPhotoId}likedPhotos={likedPhotos} likePhoto={likePhoto}/>
+              <PhotoFavButton photoId={clickedPhotoId} likePhoto={likePhoto} likedPhotos={likedPhotos} />
             </div>
             <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
           </div>
@@ -45,7 +50,7 @@ export const PhotoDetailsModal = (props) => {
           
         
         <header className="photo-details-modal--header">Similar Photos</header>
-        <PhotoList photos={photos} likedPhotos={likedPhotos} likePhoto={likePhoto} />
+        <PhotoList photos={photos} likePhoto={likePhoto} likedPhotos={likedPhotos} />
       </div>
 
     </div>
