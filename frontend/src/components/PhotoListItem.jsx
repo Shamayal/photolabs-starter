@@ -8,16 +8,10 @@ const PhotoListItem = (props) => {
 
   const { photoId , imageSource , description , user, city , country , likedPhotos , likePhoto , photoClick, currPhotoId } = props;
 
-  const clickedPhoto = () => {
-    // console.log("clicked", photoId)
-    photoClick(true)
-    currPhotoId(photoId)
-  }
-
   return (
     <article className="photo-list--item">
         <PhotoFavButton photoId={photoId} likedPhotos={likedPhotos} likePhoto={likePhoto}/>
-        <img className="photo-list--image" src={imageSource} alt={description} onClick={clickedPhoto}/>
+        <img className="photo-list--image" src={imageSource} alt={description} onClick={() => photoClick(photoId)}/>
         
       <div className="photo-list--user-details">
         <img className="photo-list--user-profile" src={imageSource} />

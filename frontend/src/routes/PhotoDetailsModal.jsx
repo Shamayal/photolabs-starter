@@ -6,6 +6,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
   const { clickedPhotoId , closeModal , photos , likedPhotos, likePhoto } = props;
+  console.log(clickedPhotoId);
 
   const photoSrc = photos.find(photo => photo.id === clickedPhotoId);
 

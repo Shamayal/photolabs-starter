@@ -11,8 +11,6 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 const App = () => {
 
   const {
-    app,
-    setApp,
     photoOpen,
     setPhotoOpen,
     clickedPhotoId,
@@ -22,6 +20,7 @@ const App = () => {
     likePhoto,
   } = useApplicationData(); 
   console.log(likedPhotos)
+  console.log(clickedPhotoId);
   // const [photoOpen, setPhotoOpen] = useState(false);
   // const [clickedPhotoId, setClickedPhotoId] = useState(null);
   // const [likedPhotos, setLikedPhotos] = useState([]);
@@ -46,7 +45,7 @@ const App = () => {
       likedPhotos={likedPhotos} 
       likePhoto={likePhoto}/>
 
-      {photoOpen && <PhotoDetailsModal 
+      {photoOpen && clickedPhotoId && <PhotoDetailsModal 
       clickedPhotoId={clickedPhotoId} 
       closeModal={closeModal} 
       photos={photos} 

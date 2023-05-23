@@ -1,4 +1,4 @@
-import { useState , useReducer } from "react";
+import { useReducer } from "react";
 
 export const ACTION = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -6,29 +6,13 @@ export const ACTION = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
+  CLOSE_SELECT_PHOTO: 'CLOSE_SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
 }
-// const fakeState = {likedPhotos: []}
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case FAV_PHOTO_ADDED:
-//       return {
-//         ...state, 
-//         likedPhotos: [...state.likedPhotos, action.payload.id]
-//       }
-//     case FAV_PHOTO_REMOVED:
-//       return {
-//         ...state, 
-//         likedPhotos: state.likedPhotos.filter(id => id !== action.payload.id)
-//       }
-//   } 
-// }
-
 
 export default function useApplicationData() {
 
-  const likeState = {likedPhotos: [], photoOpen: false}
+  const defaultState = {likedPhotos: [], photoOpen: false, clickedPhotoId: null}
 
   function reducer(state, action) {
     switch (action.type) {
@@ -42,15 +26,27 @@ export default function useApplicationData() {
           ...state, 
           likedPhotos: state.likedPhotos.filter(id => id !== action.payload.id)
         }
+      case "SELECT_PHOTO":
+        console.log(action.payload);
+        return {
+          ...state,
+          photoOpen: action.payload.isOpen,
+          clickedPhotoId: action.payload.clickedPhotoId
+        }
+      case "CLOSE_SELECT_PHOTO":
+        return {
+          ...state,
+          photoOpen: action.payload.isOpen,
+          clickedPhotoId: action.payload.clickedPhotoId
+        }
     } 
   }
 
-  const [state, dispatch] = useReducer(reducer, likeState)
+  const [state, dispatch] = useReducer(reducer, defaultState)
 
-  
-  const [photoOpen, setPhotoOpen] = useState(false);
+  // const [photoOpen, setPhotoOpen] = useState(false);
 
-  const [clickedPhotoId, setClickedPhotoId] = useState(null);
+  // const [clickedPhotoId, setClickedPhotoId] = useState(null);
   
   // const [likedPhotos, setLikedPhotos] = useState([]);
 
@@ -60,37 +56,35 @@ export default function useApplicationData() {
         type: "FAV_PHOTO_REMOVED",
         payload: { id: photoId }
       })
-      // setLikedPhotos(currLikedPhotos => {return currLikedPhotos.filter(id => id !== photoId)})
     } else {
       dispatch({
         type: "FAV_PHOTO_ADDED",
         payload: { id: photoId}
       })
-      // setLikedPhotos([...likedPhotos, photoId])
     }
   }
-  
-  // const closeModal = () => {
-  //   setPhotoOpen(false);
-  //   setClickedPhotoId(null);
-  // };
-
-  const closeModal = () => {
+  console.log(state.photoOpen)
+  const setPhotoOpen = (photoId) => {
     dispatch({
-      type: "DISPLAY_PHOTO_DETAILS",
-      payload: { id }
+      type: "SELECT_PHOTO",
+      payload: {isOpen: true, clickedPhotoId: photoId }
     })
-    setPhotoOpen(false);
-    setClickedPhotoId(null);
-  };
+  }
+  
+  const closeModal = () => {
+    console.log("dispatch")
+    dispatch({
+      type: "CLOSE_SELECT_PHOTO",
+      payload: {isOpen: false, clickedPhotoId: null}
+    })
+  }
 
   return {
-    photoOpen,
+    photoOpen: state.photoOpen,
     setPhotoOpen,
-    clickedPhotoId,
-    setClickedPhotoId,
+    clickedPhotoId: state.clickedPhotoId,
     likedPhotos: state.likedPhotos,
     closeModal,
-    likePhoto
+    likePhoto,
   };
 }
