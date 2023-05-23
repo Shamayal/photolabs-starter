@@ -27,7 +27,7 @@ export default function useApplicationData() {
           likedPhotos: state.likedPhotos.filter(id => id !== action.payload.id)
         }
       case "SELECT_PHOTO":
-        console.log(action.payload);
+        // console.log(action.payload);
         return {
           ...state,
           photoOpen: action.payload.isOpen,
@@ -57,7 +57,7 @@ export default function useApplicationData() {
       })
     }
   }
-  console.log(state.photoOpen)
+  // console.log(state.photoOpen)
   const openModal = (photoId) => {
     dispatch({
       type: "SELECT_PHOTO",
@@ -66,7 +66,7 @@ export default function useApplicationData() {
   }
   
   const closeModal = () => {
-    console.log("dispatch")
+    // console.log("dispatch")
     dispatch({
       type: "CLOSE_SELECT_PHOTO",
       payload: {isOpen: false, clickedPhotoId: null}
