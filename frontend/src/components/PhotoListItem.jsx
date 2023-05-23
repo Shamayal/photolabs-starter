@@ -11,6 +11,7 @@ const PhotoListItem = (props) => {
     imageSource,
     description,
     user,
+    userProfile,
     city,
     country,
     likePhoto,
@@ -24,7 +25,7 @@ const PhotoListItem = (props) => {
         <img className="photo-list--image" src={imageSource} alt={description} onClick={() => openModal(photoId)} />
         
       <div className="photo-list--user-details">
-        <img className="photo-list--user-profile" src={imageSource} />
+        <img className="photo-list--user-profile" src={userProfile} />
         <div className="photo-list--user-info">
           {user}
           <div className="photo-list--user-location">

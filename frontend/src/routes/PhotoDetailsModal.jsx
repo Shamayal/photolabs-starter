@@ -37,11 +37,11 @@ export const PhotoDetailsModal = (props) => {
             <div className="photo-details-modal--image-heart">
               <PhotoFavButton photoId={clickedPhotoId} likePhoto={likePhoto} likedPhotos={likedPhotos} />
             </div>
-            <img className="photo-details-modal--image" src={photoSrc.urls.small}></img>
+            <img className="photo-details-modal--image" src={photoSrc.urls.regular}></img>
           </div>
           
           <div className="photo-list--user-details">
-            <img className="photo-list--user-profile" src={photoSrc.urls.small} />
+            <img className="photo-list--user-profile" src={photoSrc.user.profile} />
             <div className="photo-list--user-info">{photoSrc.user.name}
               <div className="photo-list--user-location">{photoSrc.location.city}, {photoSrc.location.country}</div>
             </div>

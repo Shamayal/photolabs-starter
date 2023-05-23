@@ -1,16 +1,22 @@
 import React from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import useApplicationData from './hooks/useApplicationData'; 
 
-import photos from './mocks/photos.json';
-import topics from './mocks/topics.json';
+// import photos from './mocks/photos.json';
+// import topics from './mocks/topics.json';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
   const {
+    photos,
+    setPhotos,
+    topics,
+    setTopics,
     likePhoto,
     likedPhotos,
     openModal,
@@ -18,6 +24,22 @@ const App = () => {
     photoOpen,
     clickedPhotoId    
   } = useApplicationData(); 
+
+  useEffect(() => {
+    axios.get('/api/photos')
+    .then(res => {
+      setPhotos(res.data)
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get('/api/topics')
+    .then(res => {
+      setTopics(res.data)
+    })
+  }, [])
+
+  
 
   return (
     <div className="App">

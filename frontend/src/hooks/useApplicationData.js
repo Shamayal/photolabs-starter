@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 export const ACTION = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -11,6 +11,9 @@ export const ACTION = {
 }
 
 export default function useApplicationData() {
+
+  const [photos, setPhotos] = useState([]);
+  const [topics, setTopics] = useState([]);
 
   const defaultState = {likedPhotos: [], photoOpen: false, clickedPhotoId: null}
 
@@ -74,6 +77,10 @@ export default function useApplicationData() {
   }
 
   return {
+    photos,
+    setPhotos,
+    topics,
+    setTopics,
     likePhoto,
     likedPhotos: state.likedPhotos,
     openModal,
