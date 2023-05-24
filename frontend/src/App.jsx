@@ -47,17 +47,17 @@ const App = () => {
 
   const homepage = () => {
     axios.get('/api/photos')
-    .then(res => {
-      setPhotos(prev => res.data)
+    .then((res) => {
+      setPhotos(res.data)
       setTopics(res.data)
     })
   }
 
-  const getLikedPhotos = (likedPhotos) => {
-    axios.get(`/api/photos/${likedPhotos}`).then(res => {
-      setPhotos(res.likedPhotos)
-    })
-  }
+  // const getLikedPhotos = (likedPhotos) => {
+  //   axios.get(`/api/photos/${likedPhotos}`).then(res => {
+  //     setPhotos(res.likedPhotos)
+  //   })
+  // }
 
   return (
     <div className="App">
@@ -70,7 +70,8 @@ const App = () => {
       likePhoto={likePhoto}
       likedPhotos={likedPhotos}
       homepage={homepage}
-      getLikedPhotos={getLikedPhotos}/>
+      // getLikedPhotos={getLikedPhotos}
+      />
 
       {photoOpen && clickedPhotoId && <PhotoDetailsModal
       photos={photos}

@@ -14,7 +14,7 @@ const HomeRoute = (props) => {
     likePhoto,
     likedPhotos,
     homepage,
-    getLikedPhotos
+    // getLikedPhotos
   } = props;
 
   return (
@@ -24,7 +24,8 @@ const HomeRoute = (props) => {
       likedPhotos={likedPhotos}
       topicSelect={topicSelect}
       homepage={homepage}
-      getLikedPhotos={getLikedPhotos}/>
+      // getLikedPhotos={getLikedPhotos}
+      />
 
       <PhotoList 
       photos={photos}
