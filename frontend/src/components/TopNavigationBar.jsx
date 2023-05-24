@@ -18,7 +18,7 @@ const TopNavigation = (props) => {
     <div className="top-nav-bar">
       <span className="top-nav-bar--logo" onClick={homepage}>PhotoLabs</span>
       <TopicList topics={topics} topicSelect={topicSelect}/>
-      <FavBadge isFavPhotoExist={likedPhotos.length >= 1 ? true : false} onClick={() => getLikedPhotos(likedPhotos)} />
+      <FavBadge isFavPhotoExist={likedPhotos.length >= 1 ? true : false} onClick={getLikedPhotos(likedPhotos)} />
     </div>
   )
 }

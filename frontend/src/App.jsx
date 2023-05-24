@@ -46,7 +46,7 @@ const App = () => {
   }, [])
 
   const homepage = () => {
-    axios.get('')
+    axios.get('/api/photos')
     .then(res => {
       setPhotos(prev => res.data)
       setTopics(res.data)
@@ -55,7 +55,7 @@ const App = () => {
 
   const getLikedPhotos = (likedPhotos) => {
     axios.get(`/api/photos/${likedPhotos}`).then(res => {
-      setPhotos(prev => res.data)
+      setPhotos(res.likedPhotos)
     })
   }
 
