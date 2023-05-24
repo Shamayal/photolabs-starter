@@ -9,16 +9,16 @@ const TopNavigation = (props) => {
   const {
     topics,
     likedPhotos,
-    topicSelect
+    topicSelect,
+    homepage,
+    getLikedPhotos
   } = props;
 
   return (
     <div className="top-nav-bar">
-      <a href='/api/photos'>
-        <span className="top-nav-bar--logo">PhotoLabs</span>
-      </a>
+      <span className="top-nav-bar--logo" onClick={homepage}>PhotoLabs</span>
       <TopicList topics={topics} topicSelect={topicSelect}/>
-      <FavBadge isFavPhotoExist={likedPhotos.length >= 1 ? true : false}/>
+      <FavBadge isFavPhotoExist={likedPhotos.length >= 1 ? true : false} onClick={() => getLikedPhotos(likedPhotos)} />
     </div>
   )
 }

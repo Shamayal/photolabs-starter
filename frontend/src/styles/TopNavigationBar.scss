@@ -1,7 +1,3 @@
-a {
-  text-decoration: none;
-}
-
 .top-nav-bar {
   display: flex;
   flex-direction: row;
@@ -13,6 +9,9 @@ a {
   box-shadow: 0 4px 6px -6px #222;
   height: 72px;
   background-color: white;
+  span {
+    cursor: pointer;
+  }
 }
 
 .top-nav-bar--logo {

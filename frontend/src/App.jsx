@@ -45,6 +45,20 @@ const App = () => {
     })
   }, [])
 
+  const homepage = () => {
+    axios.get('')
+    .then(res => {
+      setPhotos(prev => res.data)
+      setTopics(res.data)
+    })
+  }
+
+  const getLikedPhotos = (likedPhotos) => {
+    axios.get(`/api/photos/${likedPhotos}`).then(res => {
+      setPhotos(prev => res.data)
+    })
+  }
+
   return (
     <div className="App">
       <HomeRoute 
@@ -54,7 +68,9 @@ const App = () => {
       topicSelect={topicSelect}
       openModal={openModal} 
       likePhoto={likePhoto}
-      likedPhotos={likedPhotos}/>
+      likedPhotos={likedPhotos}
+      homepage={homepage}
+      getLikedPhotos={getLikedPhotos}/>
 
       {photoOpen && clickedPhotoId && <PhotoDetailsModal
       photos={photos}
