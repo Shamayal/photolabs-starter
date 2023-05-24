@@ -12,6 +12,7 @@ const PhotoList = (props) => {
     openModal
   } = props;
 
+  // returns a list of photos depending on if a topic is selected and has an array of photos 
   const photosParsedComponents = 
   (topicPhotos && topicPhotos.length > 0) ?
   topicPhotos.map(photo => {

@@ -12,7 +12,7 @@ const HomeRoute = (props) => {
     topicPhotos,
     openModal,
     likePhoto,
-    likedPhotos,
+    likedPhotos
   } = props;
 
   return (
@@ -20,8 +20,8 @@ const HomeRoute = (props) => {
       <TopNavigationBar 
       topics={topics} 
       likedPhotos={likedPhotos}
-      topicSelect={topicSelect}
-      />
+      topicSelect={topicSelect}/>
+
       <PhotoList 
       photos={photos}
       topicPhotos={topicPhotos}

@@ -22,20 +22,26 @@ const App = () => {
     openModal,
     closeModal,
     photoOpen,
-    clickedPhotoId,
+    clickedPhotoId
   } = useApplicationData(); 
 
+  // fetch photos from db
   useEffect(() => {
     axios.get('/api/photos')
     .then(res => {
-      setPhotos(res.data)
+      setPhotos(res.data);
+    }).catch((error) => {
+      console.log('Error in fetching photos data:', error);
     })
   }, [])
 
+  // fetch topics from db
   useEffect(() => {
     axios.get('/api/topics')
     .then(res => {
-      setTopics(res.data)
+      setTopics(res.data);
+    }).catch((error) => {
+      console.log('Error in fetching topics data:', error);
     })
   }, [])
 

@@ -14,7 +14,9 @@ const TopNavigation = (props) => {
 
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar--logo">PhotoLabs</span>
+      <a href='/api/photos'>
+        <span className="top-nav-bar--logo">PhotoLabs</span>
+      </a>
       <TopicList topics={topics} topicSelect={topicSelect}/>
       <FavBadge isFavPhotoExist={likedPhotos.length >= 1 ? true : false}/>
     </div>

@@ -14,6 +14,7 @@ export const PhotoDetailsModal = (props) => {
     clickedPhotoId
   } = props;
 
+  // find photo by id key from an array
   const photoSrc = photos.find(photo => photo.id === clickedPhotoId);
 
   return (

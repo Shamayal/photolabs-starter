@@ -6,7 +6,7 @@ export const ACTION = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
   CLOSE_SELECT_PHOTO: 'CLOSE_SELECT_PHOTO',
-  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
 }
 
 export default function useApplicationData() {
@@ -50,6 +50,7 @@ export default function useApplicationData() {
 
   const [state, dispatch] = useReducer(reducer, defaultState)
 
+  // add and remove likes from a photo
   const likePhoto = (photoId) => {
     if (state.likedPhotos.includes(photoId)) {
       dispatch({
@@ -63,6 +64,8 @@ export default function useApplicationData() {
       })
     }
   }
+
+  // open a photo modal
   const openModal = (photoId) => {
     dispatch({
       type: "SELECT_PHOTO",
@@ -70,6 +73,7 @@ export default function useApplicationData() {
     })
   }
   
+  // close a photo modal 
   const closeModal = () => {
     dispatch({
       type: "CLOSE_SELECT_PHOTO",
@@ -77,6 +81,7 @@ export default function useApplicationData() {
     })
   }
 
+  // get photos based on topic selected
   const topicSelect = (topicId) => {
     let axiosReq = axios.get(`/api/topics/photos/${topicId}`);
     axiosReq.then(res => {
