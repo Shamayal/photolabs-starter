@@ -5,13 +5,14 @@ import '../styles/TopicListItem.scss'
 const TopicListItem = (props) => {
 
   const {
-    link,
-    title
+    title,
+    topicId,
+    topicSelect
   } = props;
 
   return (
-    <div className="topic-list--item">
-      <a href={link}><span>{title}</span></a>
+    <div className="topic-list--item" onClick={() => topicSelect(topicId)}>
+      <span>{title}</span>
     </div>
   )
 }

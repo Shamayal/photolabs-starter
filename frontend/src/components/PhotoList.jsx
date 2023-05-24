@@ -6,12 +6,33 @@ import PhotoListItem from './PhotoListItem';
 const PhotoList = (props) => {
   const {
     photos,
+    topicPhotos,
     likePhoto,
     likedPhotos,
     openModal
   } = props;
 
-  const photosParsedComponents = photos.map(photo => {
+  const photosParsedComponents = 
+  (topicPhotos && topicPhotos.length > 0) ?
+  topicPhotos.map(photo => {
+    return (
+      <PhotoListItem
+      key={photo.id}
+      photoId={photo.id}
+      imageSource={photo.urls.regular}
+      description={photo.description}
+      user={photo.user.name}
+      userProfile={photo.user.profile}
+      city={photo.location.city}
+      country={photo.location.country}
+      likePhoto={likePhoto}
+      likedPhotos={likedPhotos}
+      openModal={openModal}
+      />
+    )
+  })
+  :
+  photos.map(photo => {
     return (
       <PhotoListItem
       key={photo.id}

@@ -1,13 +1,12 @@
 import { useReducer, useState } from "react";
+import axios from 'axios';
 
 export const ACTION = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   CLOSE_SELECT_PHOTO: 'CLOSE_SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
 export default function useApplicationData() {
@@ -15,7 +14,7 @@ export default function useApplicationData() {
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
 
-  const defaultState = {likedPhotos: [], photoOpen: false, clickedPhotoId: null}
+  const defaultState = {likedPhotos: [], photoOpen: false, clickedPhotoId: null, topicPhotos: []}
 
   function reducer(state, action) {
     switch (action.type) {
@@ -30,7 +29,6 @@ export default function useApplicationData() {
           likedPhotos: state.likedPhotos.filter(id => id !== action.payload.id)
         }
       case "SELECT_PHOTO":
-        // console.log(action.payload);
         return {
           ...state,
           photoOpen: action.payload.isOpen,
@@ -41,6 +39,11 @@ export default function useApplicationData() {
           ...state,
           photoOpen: action.payload.isOpen,
           clickedPhotoId: action.payload.clickedPhotoId
+        }
+      case "GET_PHOTOS_BY_TOPICS":
+        return {
+          ...state,
+          topicPhotos: action.payload
         }
     } 
   }
@@ -60,7 +63,6 @@ export default function useApplicationData() {
       })
     }
   }
-  // console.log(state.photoOpen)
   const openModal = (photoId) => {
     dispatch({
       type: "SELECT_PHOTO",
@@ -69,10 +71,19 @@ export default function useApplicationData() {
   }
   
   const closeModal = () => {
-    // console.log("dispatch")
     dispatch({
       type: "CLOSE_SELECT_PHOTO",
       payload: {isOpen: false, clickedPhotoId: null}
+    })
+  }
+
+  const topicSelect = (topicId) => {
+    let axiosReq = axios.get(`/api/topics/photos/${topicId}`);
+    axiosReq.then(res => {
+      dispatch({
+        type: "GET_PHOTOS_BY_TOPICS",
+        payload: res.data
+      })
     })
   }
 
@@ -87,5 +98,7 @@ export default function useApplicationData() {
     closeModal,
     photoOpen: state.photoOpen,
     clickedPhotoId: state.clickedPhotoId,
+    topicSelect,
+    topicPhotos: state.topicPhotos
   };
 }

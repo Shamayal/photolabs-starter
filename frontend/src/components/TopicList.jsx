@@ -11,6 +11,8 @@ const TopicList = (props) => {
       key={topic.id}
       title={topic.title}
       link={topic.link}
+      topicId={topic.id}
+      topicSelect={props.topicSelect}
       />
     )
   })
