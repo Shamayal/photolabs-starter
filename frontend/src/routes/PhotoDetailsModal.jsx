@@ -9,6 +9,7 @@ export const PhotoDetailsModal = (props) => {
     photos,
     likePhoto,
     likedPhotos,
+    openModal,
     closeModal,
     clickedPhotoId
   } = props;
@@ -50,7 +51,7 @@ export const PhotoDetailsModal = (props) => {
           
         
         <header className="photo-details-modal--header">Similar Photos</header>
-        <PhotoList photos={photos} likePhoto={likePhoto} likedPhotos={likedPhotos} />
+        <PhotoList photos={photos} likePhoto={likePhoto} likedPhotos={likedPhotos} openModal={openModal} />
       </div>
 
     </div>

@@ -54,6 +54,7 @@ const App = () => {
       photos={photos}
       likePhoto={likePhoto}
       likedPhotos={likedPhotos}
+      openModal={openModal}
       closeModal={closeModal}
       clickedPhotoId={clickedPhotoId}/>}
     </div>
